@@ -1,0 +1,6 @@
+{
+    "require": {
+        "mercadopago/dx-php": "2.5.5",
+        "tecnickcom/tcpdf": "^6.6"
+    }
+}
