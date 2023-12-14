@@ -18,16 +18,16 @@ define('MAILHOST', 'smtp.hostinger.com');  // exemplo: mail.cardapion.com
 
 // DEFINE A BASE DO SITE ####################
 
-$isProduction = true;
+$isProduction = false;
 
 if($isProduction) {    
     define('HOME', 'https://sistemasvf.com.br/cardapiofacil/'); // SEMPRE COM A BARRA NA FRENTE ---- ---- ---- ----
     define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'].'/sistema/uploads/');
     define('URL_IMAGE', 'https://sistemasvf.com.br/sistema/uploads/');
 }else{
-    define('HOME', '../../pedidofacil/' ); // SEMPRE COM A BARRA NA FRENTE ---- ---- ---- ----
-    define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'].'/svf/sistema/uploads/');
-    define('URL_IMAGE', 'http://localhost/svf/sistema/uploads/');
+    define('HOME', 'http://localhost/svf/SISTEMA/cardapiofacil/' ); // SEMPRE COM A BARRA NA FRENTE ---- ---- ---- ----
+    define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'].'/svf/SISTEMA/sistema/uploads/');
+    define('URL_IMAGE', 'http://localhost/svf/SISTEMA/sistema/uploads/');
 
 }
 date_default_timezone_set('America/Sao_Paulo');

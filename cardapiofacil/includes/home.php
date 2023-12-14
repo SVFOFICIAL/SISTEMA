@@ -450,7 +450,7 @@ $("#popuppedido_"+"<?=$ido_DoItem;?>").on('hidden.bs.modal', function(e){
 				e.preventDefault();			 
 				 
 			    var table = $('#pedido').DataTable();
-				console.log($('#addItemPost_<?=$ido_DoItem;?>').serialize())
+			 
 				$.ajax({
 					url: '<?= $site; ?>includes/processaAddItem.php',
 					method: "post",

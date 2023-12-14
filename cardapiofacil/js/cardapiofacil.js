@@ -153,9 +153,9 @@
             if (!isNaN(qtCurrent)) {
                         if(typeAction == 'plus'){               
                             qtCurrent = qtCurrent +1 
-                            console.log(qtCurrent);
+                         
                             $(inputQt).val(qtCurrent).change();          
-                            console.log(inputQt.val());
+                           
 
                         }else if(typeAction=='minus'){
                                 qtCurrent =  inputQt.val()==1 ? 1 : qtCurrent -1 

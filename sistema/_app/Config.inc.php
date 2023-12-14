@@ -18,7 +18,7 @@ define('MAILHOST', 'smtp.hostinger.com');  // exemplo: mail.cardapion.com
 
 // DEFINE A BASE DO SITE ####################
 
-$isProduction = true;
+$isProduction = false;
 
 if($isProduction) {    
     define ('LOGIN', 'https://sistemasvf.com.br/login/');
@@ -28,12 +28,12 @@ if($isProduction) {
     define('ADMIN_URL', 'https://sistemasvf.com.br/admin/');
     define('URL_IMAGE', 'https://sistemasvf.com.br/sistema/uploads/');
 }else{
-    define ('LOGIN', 'http://localhost/svf/login/');
-    define('HOME', 'http://localhost/svf/sistema/' ); // SEMPRE COM A BARRA NA FRENTE ---- ---- ---- ----
-    define('LINK_LOJA','http://localhost/svf/cardapiofacil/');
-    define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'].'/svf/sistema/');
-    define('URL_IMAGE', 'http://localhost/svf/sistema/uploads/');
-    define('ADMIN_URL', 'http://localhost/svf/admin/');
+    define ('LOGIN', 'http://localhost/svf/SISTEMA/login/');
+    define('HOME', 'http://localhost/svf/SISTEMA/sistema/' ); // SEMPRE COM A BARRA NA FRENTE ---- ---- ---- ----
+    define('LINK_LOJA','http://localhost/svf/SISTEMA/cardapiofacil/');
+    define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'].'/svf/SISTEMA/sistema/');
+    define('URL_IMAGE', 'http://localhost/svf/SISTEMA/sistema/uploads/');
+    define('ADMIN_URL', 'http://localhost/svf/SISTEMA/admin/');
 }
 date_default_timezone_set('America/Sao_Paulo');
 
