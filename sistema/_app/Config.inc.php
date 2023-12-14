@@ -11,7 +11,7 @@ define('DBSA', 'u855226119_DADOS');
 
 // DEFINE SERVIDOR DE E-MAIL PARA RECEBER NOTIFICAÇÃO VIA E-MAIL ################
 define('MAILUSER', 'contato@sistemasvf.com.br'); // email: exemplo contato@cardapion.com
-define('MAILPASS', 'Y4m4t02@'); // Senha do email
+define('MAILPASS', 'Svfo@12345678'); // Senha do email
 define('MAILPORT', '465'); // exemplo: 465
 define('MAILHOST', 'smtp.hostinger.com');  // exemplo: mail.cardapion.com
 
