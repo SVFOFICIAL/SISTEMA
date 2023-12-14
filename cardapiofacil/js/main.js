@@ -49,7 +49,7 @@ $(".popuppedido").on("show.bs.modal", function(e){
     let idModal =  $(e.currentTarget).attr('data-iteidem');
     let flagTp = $('#check-tp_'+idModal).attr('data-flagtp');
     let valorItem = $('#valorItem_'+idModal).text();
-    console.log(valorItem)
+    
     $('#valorItem_'+idModal).text(parseFloat(valorItem).toFixed(2));
     $('#valorItem_'+idModal).attr('data-valoratual', parseFloat(valorItem).toFixed(2));
     
