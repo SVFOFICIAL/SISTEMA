@@ -38,6 +38,12 @@ $('#cart-modal').on("shown.bs.modal", function(){
 
 });
 
+$("#checkout-modal").on("shown.bs.modal", function(e){
+
+    $('#cart-modal').modal('hide');
+    $('body').attr('style', 'overflow: visible !important');
+})
+
 $(".popuppedido").on("show.bs.modal", function(e){
    
    

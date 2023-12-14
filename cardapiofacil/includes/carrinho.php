@@ -1,10 +1,10 @@
 <!-- Content ================================================== -->
 
 <?php
-if(!isset($_POST['opcao_delivery']) || $cart->isEmpty()):
-	header("Location: {$site}{$Url[0]}");
-endif;
-
+// if(!isset($_POST['opcao_delivery']) || $cart->isEmpty()):
+// 	header("Location: {$site}{$Url[0]}");
+// endif;
+$_POST['opcao_delivery'] = "true";
 $bairrosstatus = 'false';
 $pedidos = '';
 $allItems = $cart->getItems();
