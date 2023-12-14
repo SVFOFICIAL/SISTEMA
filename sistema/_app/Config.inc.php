@@ -6,7 +6,7 @@ require 'funcoes.php';
 // CONFIGRAÇÕES DO BANCO DE DADOS ####################
 define('HOST', 'localhost');
 define('USER', 'u855226119_root');
-define('PASS', 'Gmcogumelo3@');
+define('PASS', 'Svfo@12345678');
 define('DBSA', 'u855226119_DADOS');
 
 // DEFINE SERVIDOR DE E-MAIL PARA RECEBER NOTIFICAÇÃO VIA E-MAIL ################
@@ -19,7 +19,7 @@ define('MAILHOST', 'smtp.hostinger.com');  // exemplo: mail.cardapion.com
 
 // DEFINE A BASE DO SITE ####################
 
-$isProduction = false;
+$isProduction = true;
 
 if($isProduction) {    
     define ('LOGIN', 'http://sistemasvf.com.br/login/');
