@@ -18,7 +18,7 @@ define('MAILHOST', 'smtp.hostinger.com');  // exemplo: mail.cardapion.com
 
 // DEFINE A BASE DO SITE ####################
 
-$isProduction = false;
+$isProduction = true;
 
 if($isProduction) {    
     define ('LOGIN', 'https://sistemasvf.com.br/login/');
