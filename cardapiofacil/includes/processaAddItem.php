@@ -52,6 +52,8 @@ if(isset($carrinhoObj)){
 	$detalhes_pedido['adicionais'] = array();
  
 	$adicionais = array();
+
+	if(!empty($adicionaisKey) && count($adicionaisKey)>0 ){
 	 foreach($adicionaisKey as $key => $value){
 		 
 		if($value > 0){
@@ -68,13 +70,13 @@ if(isset($carrinhoObj)){
 		}
 	 }
 
-	 foreach($detalhes_pedido['adicionais'] as $itemAdd){
+			foreach($detalhes_pedido['adicionais'] as $itemAdd){
 
-	   $detalhes_pedido['preco'] = (float)$detalhes_pedido['preco'] + (float)$itemAdd['valor_total'];
-	 }
-	
+			$detalhes_pedido['preco'] = (float)$detalhes_pedido['preco'] + (float)$itemAdd['valor_total'];
+			}
+		} 
 	 
- 
+		$detalhes_pedido['adicionais'] = array();
 		$cart->add($carrinhoObj['id-item'], $carrinhoObj['quantidade'], $detalhes_pedido);
 		$detalhes_pedido['preco'] =  (float)$detalhes_pedido['preco'] * (int)$detalhes_pedido['quantidade'];
 		$carrinho['total_carrinho'] = (float)$cart->getAttributeTotal('preco');	   
@@ -137,7 +139,7 @@ if(isset($carrinhoObj)){
 			echo json_encode($res);
 
 		}
-	
+	 
 
 
 	};

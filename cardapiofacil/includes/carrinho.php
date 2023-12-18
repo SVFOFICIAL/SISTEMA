@@ -42,56 +42,94 @@ function tirarAcentos($string){
 	return utf8_encode($string);
 }
 ?>
+<html>
+	<head>
 
-<div class="container">
+	<style>
+#img-head-loja{
+	display:none;
+}
+
+.parallax-window{
+	display:none;
+}
+.checkout-container{
+	padding:20px;
+
+}
+
+.tab-link{
+	border-top: 2px solid #F0F0F0;
+  border-left: 2px solid #F0F0F0;
+  border-right: 2px solid #F0F0F0;
+  background: #F0F0F0;
+  
+}
+
+.tab-link-active{
+	border-top: 2px solid #F0F0F0;
+  border-left: 2px solid #F0F0F0;
+  border-right: 2px solid #F0F0F0;
+  background: white;
+}
+
+a:hover,a:link,a:visited{
+					color:black !important;
+				}
+		</style>
+	
+
+</head>
+		<body>
+
+		<div class="w-full">
+
+		
+	
+
+		<div  class="config-header w-full text-bold text-center text-white">
+											<p>MODO DE ENTREGA</p>
+									</div>	
+									<ul style="color:black" class="w-full">
+						 			<div class="w-full flex flex-row">
+									<div class="w-full tab-link-active text-center">
+											<button class="nav-link active" data-tipo="0" aria-current="page" >Delivery</button>
+									</div>
+								<div class="w-full tab-link text-center">
+									<button class="nav-link" data-tipo="1" >Retirada na Loja</button>
+									</div>
+								</div>
+						 
+			</ul>
 	<div id="detalhes_pedido"></div>
 	
-	<div class="row">
-		<div class="col-md-3">
-			<div class="box_style_2 info">
-				<h4 class="nomargin_top"><?=$texto['msg_delivery_time'];?> <i class="icon_clock_alt pull-right"></i></h4>
-				<p>
-					<?=(!empty($msg_tempo_delivery) ? $msg_tempo_delivery : "");?>
-					<?=(!empty($minimo_delivery) && $minimo_delivery != '0.00' ? "<br /><b style='color:red;'>Valor mínimo:</b> R$ ".Check::Real($minimo_delivery) : '');?>
-				</p>
-				<hr />
-				<h4 class="nomargin_top">Retirada no Balcão <i class="icon_clock_alt pull-right"></i></h4>
-				<p>
-					<?=(!empty($msg_tempo_buscar) ? $msg_tempo_buscar : "");?>
-				</p>
-			</div><!-- End box_style_1 -->
-
-			<div class="box_style_2 hidden-xs" id="help">
-				<i class="icon_lifesaver"></i>
-				<h4><?=$texto['home_ajuda'];?></h4>
-				<a href="https://api.whatsapp.com/send?1=pt_BR&phone=<?=(!empty($telefone_empresa) ? '55'.$telefone_empresa : '');?>" target="_blank" class="phone"><?=(!empty($telefone_empresa) ? formatPhone($telefone_empresa) : '(00) 00000-0000');?></a>
+	<div id="delivery" class="checkout-container flex flex-col">
+		 
+	<div class="w-full">
+			<img src="<?=$site;?>img/delivery.jpg" style="max-width: 100%;height: auto;" />
 			</div>
+		<form style="margin-top: 20px" id="getDadosPedidoCompleto" method="post">
+			<div class="w-full">
+			 				
+						<div class="w-full" id="order_process">				
+						<div style="margin-bottom: 20px;" class="w-full">
 
-		</div><!-- End col-md-3 -->
-		<form id="getDadosPedidoCompleto" method="post">
-			<div class="col-md-6">
-				<div class="mg-b-10" align="center">
-					<?php if($_POST['opcao_delivery'] == 'true'): ?>
-						<img src="<?=$site;?>img/delivery.jpg" style="max-width: 100%;height: auto;" />
-						<?php elseif($_POST['opcao_delivery'] == 'false'): ?>
-							<img src="<?=$site;?>img/bcartao.jpg" style="max-width: 100%;height: auto;" />
-							<?php elseif($_POST['opcao_delivery'] == 'false2'): ?>
-								<img src="<?=$site;?>img/mesa.jpg" style="max-width: 100%;height: auto;" />
-							<?php endif; ?>
+						<div class="indent_title_in">
+  
+						<h3 style="font-size:24px" class="text-bolder" >Endereço:</h3>
+								 
+								<span style="font-size:12px">Preencha todos os campos corretamente</span>
 
-						</div>				
-						<div class="box_style_2" id="order_process">				
-							<div style="text-transform: uppercase;font-weight: 700;font-size: 13px;color: #343a40;letter-spacing: 1px;"><i class="fa fa-caret-right"></i> <?=$texto['msg_msg_dadosabaixo'];?></div>	
-							<br />				
-							<div class="form-group">
-								<label for="telefone"><span style="color: red;">* </span><?=$texto['msg_seu_tell'];?></label>
-								<input required type="tel" id="telefone" name="telefone" class="form-control" placeholder="(99) 99999-9999" data-mask="(00) 00000-0000" maxlength="15">
-							</div>	
-							<div class="form-group">
-								<label for="nome"><span style="color: red;">* </span><?=$texto['msg_seu_nome'];?></label>
-								<input required type="text" class="form-control" id="nome" name="nome" placeholder="<?=$texto['msg_seu_nome'];?>">
+							 
+								</div>
+							
+								
 							</div>
-
+							<div class="form-group">
+								<label for="cep">Cep:</label>
+								<input required type="text" id="cep" name="cep" class="form-control" placeholder="Digite seu cep ex: 00.000-00" data-mask="00.000-00" maxlength="7">
+							</div>
+		
 							<?php if($_POST['opcao_delivery'] == 'false2'):?>						
 								<div class="row">
 									<div class="col-lg-6">
@@ -111,9 +149,9 @@ function tirarAcentos($string){
 
 
 							<script type="text/javascript">
-								$(document).ready(function() {
-									$('.js-example-basic-single').select2();
-								});
+								// $(document).ready(function() {
+								// 	$('.js-example-basic-single').select2();
+								// });
 							</script>
 							<?php if($_POST['opcao_delivery'] == 'true'):?>	
 
@@ -248,21 +286,17 @@ function tirarAcentos($string){
 								</div>
 								<input type="hidden" required name="valor_taxa" id="valor_taxa" value="<?=($bairrosstatus == 'false' && $_POST['opcao_delivery'] == 'true' ? $config_delivery : '0.00');?>">
 
-
+								
 							</div>
-							<hr />
-							<span style="color: red;"><b>OBSERVAÇÕES:</b>
-								<br /><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Nunca passe seus dados do cartão pelo WHATSAPP!
-								<br /><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Ao clicar em "<?=$texto['msg_pedir_agora'];?>" Seu pedido será enviado para o WHATSAPP com um <strong>código</strong> de identificação.
-							</span>
+						 
 						</div><!-- End box_style_1 -->
 
 					</div><!-- End col-md-6 -->
 
 					<div class="col-md-3" id="sidebar">
 
-						<div class="theiaStickySidebar">
-							<div id="cart_box" >
+						<div class="w-full">
+							<div id="w-full" >
 								<h3><?=$texto['msg_resumo_pedido'];?> <i class="icon_cart_alt pull-right"></i></h3>			
 								<?php
 								if($cart->isEmpty()):
@@ -414,6 +448,10 @@ function tirarAcentos($string){
 
 				</div><!-- End col-md-3 -->
 
+				<div id="retirada_loja" class="w-full">
+									teste
+								</div>
+
 			</div><!-- End row -->
 		</div><!-- End container -->
 		<div id="resultadoGetcliente"></div>
@@ -493,3 +531,11 @@ function tirarAcentos($string){
 	});
 
 </script>
+
+
+
+<script type="module" src="<?= $site;?>/js/carrinho.js"></script>
+</body>
+</html>
+ 
+		

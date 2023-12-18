@@ -33,6 +33,8 @@ try{
       $itemCart = $cart->getItems()[$itemObj['iditem']];
       $detalhes_pedido['adicionais'] = array();
 
+   
+     
       $detalhes_pedido = array(
         'id_produto' => $itemCart[0]['attributes']['id_produto'],
         'preco'  =>  $itemCart[0]['attributes']['preco'],
@@ -40,9 +42,10 @@ try{
         'nome'  => $itemCart[0]['attributes']['nome'],
         'img_prod'=>  $itemCart[0]['attributes']['img_prod'],
         'observacao'  => $itemCart[0]['attributes']['observacao'],
-        'adicionais' =>  $itemCart[0]['attributes']['adicionais']
+        'adicionais' => !empty($itemCart[0]['attributes']['adicionais']) ? $itemCart[0]['attributes']['adicionais'] : array()
+        
       );
-   
+     
      
      $resUpdate =  $cart->update($itemObj['iditem'], (int)$itemObj['qtItem'],$detalhes_pedido);
     
