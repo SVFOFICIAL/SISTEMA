@@ -651,7 +651,7 @@ else:
 		<!--<link href="css/color_scheme.css" rel="stylesheet">-->
 	</head>
 
-	<body class="leading-normal tracking-normal">
+	<body data-url="<?=$site?>" class="leading-normal tracking-normal">
 		<!-- inicio do loader 
 		<div id="preloader">
 			<div class="sk-spinner sk-spinner-wave" id="status">
@@ -1058,6 +1058,7 @@ endif;
 <script src="<?= $site; ?>js/jquery.mask.js"></script>
 <script src="<?= $site; ?>js/index-btn-file.js"></script>
 <script src="<?= $site; ?>js/funcoesjs.js"></script>
+ 
 <script src="<?= $site; ?>js/custom-file-input.js"></script>
 <script src="<?= $site; ?>js/bootstrap-datepicker.js"></script>
 <script src="<?= $site; ?>js/parallax.js"></script>

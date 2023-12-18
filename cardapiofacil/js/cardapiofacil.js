@@ -1,9 +1,10 @@
 'use-strict';
 
+const url  = $('body').attr("data-url");
 
  export const cardapio = {
 
-        
+    
 
         tableItemsPedido: 
             
@@ -28,7 +29,7 @@
                     }, 
                     
                     "ajax" : {
-                        url : 'includes/getItensCarrinho.php'
+                        url :url+'includes/getItensCarrinho.php'
                     },
                     "order": [],
                     columns: [
@@ -51,6 +52,7 @@
        
        }),
 
+  
 
        delete : () => {
 
@@ -147,7 +149,8 @@
             let idItemCart = $(e.currentTarget).attr('data-id');
             let url = $(e.currentTarget).attr('data-url');
             let item_hash = $(e.currentTarget).attr('data-item_hash');
-            var inputQt = $('input[name="quantidade-cart"]');
+            var inputQt = $(`input[name="quantidade-cart_${idItem}"]`);
+        
             var qtCurrent = parseInt($(inputQt).val());
             let typeAction = $(e.currentTarget).attr('data-type');
             if (!isNaN(qtCurrent)) {
@@ -193,7 +196,7 @@
 
         let userId = $('#totalizador').attr('data-userid');
         $.ajax({
-            url: 'includes/getTotalCart.php?id='+userId,
+            url: url+'includes/getTotalCart.php?id='+userId,
             method: "get",
       
 
