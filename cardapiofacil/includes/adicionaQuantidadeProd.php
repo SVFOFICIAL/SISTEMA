@@ -26,11 +26,13 @@ try{
     $res['error'] = false;
  
     $itemObj = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+    
  
     if(!empty($itemObj['iditem']) && (int)$itemObj['iditem'] && !empty($itemObj['id']) && (int)$itemObj['id'] && !empty($itemObj['idcart']) && (int)$itemObj['idcart']){
-
+      
       $itemCart = $cart->getItems()[$itemObj['iditem']];
-       
+      $detalhes_pedido['adicionais'] = array();
+
       $detalhes_pedido = array(
         'id_produto' => $itemCart[0]['attributes']['id_produto'],
         'preco'  =>  $itemCart[0]['attributes']['preco'],
@@ -38,13 +40,14 @@ try{
         'nome'  => $itemCart[0]['attributes']['nome'],
         'img_prod'=>  $itemCart[0]['attributes']['img_prod'],
         'observacao'  => $itemCart[0]['attributes']['observacao'],
+        'adicionais' =>  $itemCart[0]['attributes']['adicionais']
       );
-      $detalhes_pedido['adicionais'] = array();
-
+   
+     
      $resUpdate =  $cart->update($itemObj['iditem'], (int)$itemObj['qtItem'],$detalhes_pedido);
     
      if($resUpdate){
- 
+    
       $detalhes_pedido['quantidade'] = (int)$itemObj['qtItem'];
       $detalhes_pedido['preco'] =  (float)$detalhes_pedido['preco'] * (int)$detalhes_pedido['quantidade'];
 

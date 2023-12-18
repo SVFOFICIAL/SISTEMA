@@ -1,5 +1,6 @@
 'use-strict';
 
+const url = $('body').attr('data-url');
 
  export const cardapio = {
 
@@ -28,7 +29,7 @@
                     }, 
                     
                     "ajax" : {
-                        url : 'includes/getItensCarrinho.php'
+                        url : url+'includes/getItensCarrinho.php'
                     },
                     "order": [],
                     columns: [
@@ -60,7 +61,7 @@
             let hashItem = $(e.currentTarget).attr('data-item_hash');
             let idCart = $(e.currentTarget).attr('data-idcart');
             let idItem = $(e.currentTarget).attr('data-iditem');
-            let url = $(e.currentTarget).attr('data-url')
+            
 
           
                 $(e.currentTarget).prop('disabled', true);
@@ -145,10 +146,12 @@
             let idItem = $(e.currentTarget).attr('data-iditem');
             let idCart = $(e.currentTarget).attr('data-idcart');
             let idItemCart = $(e.currentTarget).attr('data-id');
-            let url = $(e.currerwntTarget).attr('data-url');
+           
             let item_hash = $(e.currentTarget).attr('data-item_hash');
-            var inputQt = $(`input[name="quantidade-cart_${idItem}]`);
+            var inputQt = $(`input[name="quantidade-cart_${idItem}"]`);
+        
             var qtCurrent = parseInt($(inputQt).val());
+          
             let typeAction = $(e.currentTarget).attr('data-type');
             if (!isNaN(qtCurrent)) {
                         if(typeAction == 'plus'){               

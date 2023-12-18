@@ -73,8 +73,7 @@ if(isset($carrinhoObj)){
 	   $detalhes_pedido['preco'] = (float)$detalhes_pedido['preco'] + (float)$itemAdd['valor_total'];
 	 }
 	
-	
- 
+	 
  
 		$cart->add($carrinhoObj['id-item'], $carrinhoObj['quantidade'], $detalhes_pedido);
 		$detalhes_pedido['preco'] =  (float)$detalhes_pedido['preco'] * (int)$detalhes_pedido['quantidade'];

@@ -651,7 +651,7 @@ else:
 		<!--<link href="css/color_scheme.css" rel="stylesheet">-->
 	</head>
 
-	<body class="leading-normal tracking-normal">
+	<body data-url="<?=$site?>" class="leading-normal tracking-normal">
 		<!-- inicio do loader 
 		<div id="preloader">
 			<div class="sk-spinner sk-spinner-wave" id="status">
@@ -1058,6 +1058,7 @@ endif;
 <script src="<?= $site; ?>js/jquery.mask.js"></script>
 <script src="<?= $site; ?>js/index-btn-file.js"></script>
 <script src="<?= $site; ?>js/funcoesjs.js"></script>
+ 
 <script src="<?= $site; ?>js/custom-file-input.js"></script>
 <script src="<?= $site; ?>js/bootstrap-datepicker.js"></script>
 <script src="<?= $site; ?>js/parallax.js"></script>
@@ -1209,14 +1210,17 @@ $('.btn-number').click(function(e){
 	var idTipo =  $(e.currentTarget).attr('data-idtipo');
 	var qtItem = parseFloat($("input[name='quantidade']").val());
 
-	var qtMaxTiposAdicionais = $(e.currentTarget).data('maxadcionais') ? parseFloat($(e.currentTarget).data('maxadcionais')) : "";
+	var qtMaxTiposAdicionais = $(e.currentTarget).data('maxadcionais') ? parseInt($(e.currentTarget).data('maxadcionais')) : "";
+	 
+
 	$("#valorItem_"+idItem).attr('data-add', false);
 	var adicionais = $("#valorItem_"+idItem).attr('data-add');
 	if (!isNaN(currentVal)) {
 		if(type == 'minus') {
-
+		 
 			if(currentVal > input.attr('min')) {
 				input.val(currentVal - 1).change();
+				
 				if(adicional && valorAdicional && idItem && parseFloat(valorAdicional)>0){
 				
 					var inputsAdicionais = $('.input-count_'+idTipo);
@@ -1225,7 +1229,7 @@ $('.btn-number').click(function(e){
 
 					for(let i=0;i<inputsAdicionais.length;i++){
 						sumValorAdicionais += parseFloat($(inputsAdicionais[i]).val());
-
+						 
 					}
 
 					var inputsAdicionaisTotal = $('.input-total');
@@ -1246,7 +1250,7 @@ $('.btn-number').click(function(e){
 						$("#valorItem_"+idItem).attr('data-add', false);
 
 						 
-					if(qtMaxTiposAdicionais && sumValorAdicionais == qtMaxTiposAdicionais){
+					if(qtMaxTiposAdicionais && sumValorAdicionais >= qtMaxTiposAdicionais){
 						$('.btn-plus_'+idTipo).attr('disabled', true);
 						var parent = $('.btn-plus_'+idTipo).parent();
 						$(parent).css('background', "grey");
@@ -1268,9 +1272,8 @@ $('.btn-number').click(function(e){
 					 
 					$("#valorItem_"+idItem).attr('data-valoratual', valorAtualizadoItem)
 					$("#valor_item").val(parseFloat(valorAtualizadoItem).toFixed(2))
-						console.log("QtMaxTiposAdicionais:" + qtMaxTiposAdicionais)
-						console.log("SumAdicionais:" + sumValorAdicionais)
-					if(qtMaxTiposAdicionais && sumValorAdicionais == qtMaxTiposAdicionais){
+						 
+						if(qtMaxTiposAdicionais && sumValorAdicionais >= qtMaxTiposAdicionais){
 						$('.btn-plus_'+idTipo).attr('disabled', true);
 						var parent = $('.btn-plus_'+idTipo).parent();
 						$(parent).css('background', "grey");
@@ -1289,15 +1292,21 @@ $('.btn-number').click(function(e){
 			} 
 		 
 		} else if(type == 'plus') {
-
+		 
 			if(currentVal < input.attr('max')) {
 				input.val(currentVal + 1).change();
+			 
 				if(adicional && valorAdicional && idItem &&parseFloat(valorAdicional)>0){
 					
 
 					var inputsAdicionais = $('.input-count_'+idTipo);
-					var valInputsAdicionais = [];
+			 
 					var sumValorAdicionais = 0;
+
+					for(let i=0;i<inputsAdicionais.length;i++){
+						sumValorAdicionais += parseFloat($(inputsAdicionais[i]).val());
+						 
+					}
 
 
 					var inputsAdicionaisTotal = $('.input-total');
@@ -1306,7 +1315,7 @@ $('.btn-number').click(function(e){
 
 					for(let i=0;i<inputsAdicionaisTotal.length;i++){
 						sumValorAdicionaisTotal += parseFloat($(inputsAdicionaisTotal[i]).val());
-
+						 
 					}
 					if(sumValorAdicionais==0 && sumValorAdicionaisTotal==0 && adicionais=='false'){
 						let valorItem = parseFloat($("#valorItem_"+idItem).attr('data-valoritem'));
@@ -1317,7 +1326,7 @@ $('.btn-number').click(function(e){
 						$("#valorItem_"+idItem).attr('data-add', false);
 						
 						
-						if(qtMaxTiposAdicionais && sumValorAdicionais == qtMaxTiposAdicionais){
+					if(qtMaxTiposAdicionais && sumValorAdicionais >= qtMaxTiposAdicionais){
 						$('.btn-plus_'+idTipo).attr('disabled', true);
 						var parent = $('.btn-plus_'+idTipo).parent();
 						$(parent).css('background', "grey");
@@ -1340,8 +1349,9 @@ $('.btn-number').click(function(e){
 					let valorPedidoAtualizado = $('#valorItem_'+idItem).text();
 					$("#valorItem_"+idItem).attr('data-valoratual', valorAtualizadoItem)
 					// $("#popuppedido_"+idItem+" #valor_item").val(parseFloat(valorAtualizadoItem).toFixed(2));
-					
-					if(qtMaxTiposAdicionais && sumValorAdicionais == qtMaxTiposAdicionais){
+					 
+				 
+					if(qtMaxTiposAdicionais && sumValorAdicionais >= qtMaxTiposAdicionais){
 						$('.btn-plus_'+idTipo).attr('disabled', true);
 						var parent = $('.btn-plus_'+idTipo).parent();
 						$(parent).css('background', "grey");
