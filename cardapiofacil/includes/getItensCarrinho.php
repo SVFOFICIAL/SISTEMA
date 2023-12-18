@@ -86,7 +86,7 @@ try{
 		</div>
 		</div>
 		<div class=\"p-1 mt-1 mr-2\"> 
-			<input  readonly style=\"height:20px; width:35px; font-size:15px; border-color: white;\" class=\"w-1/2 text-center\" type=\"text\" name=\"quantidade-cart_{$idProduto}\" class=\"input-number qtdpedido-cart\" value=\"{$qtItem}\" min=\"1\" max=\"100\">
+			<input  readonly style=\"height:20px; width:35px; font-size:15px; border-color: white;\" class=\"w-1/2 text-center\" type=\"text\" name=\"quantidade-cart_{$idItem}\" class=\"input-number qtdpedido-cart\" value=\"{$qtItem}\" min=\"1\" max=\"100\">
 		</div>
 		<div class=\"p-1 mt-1 mr-2\"> 
 		<div style=\"color:#46DC4C;\" class=\"flex justify-center w-full\">

@@ -1,10 +1,9 @@
 'use-strict';
 
-const url  = $('body').attr("data-url");
 
  export const cardapio = {
 
-    
+        
 
         tableItemsPedido: 
             
@@ -29,7 +28,7 @@ const url  = $('body').attr("data-url");
                     }, 
                     
                     "ajax" : {
-                        url :url+'includes/getItensCarrinho.php'
+                        url : 'includes/getItensCarrinho.php'
                     },
                     "order": [],
                     columns: [
@@ -52,7 +51,6 @@ const url  = $('body').attr("data-url");
        
        }),
 
-  
 
        delete : () => {
 
@@ -147,10 +145,9 @@ const url  = $('body').attr("data-url");
             let idItem = $(e.currentTarget).attr('data-iditem');
             let idCart = $(e.currentTarget).attr('data-idcart');
             let idItemCart = $(e.currentTarget).attr('data-id');
-            let url = $(e.currentTarget).attr('data-url');
+            let url = $(e.currerwntTarget).attr('data-url');
             let item_hash = $(e.currentTarget).attr('data-item_hash');
-            var inputQt = $(`input[name="quantidade-cart_${idItem}"]`);
-        
+            var inputQt = $(`input[name="quantidade-cart_${idItem}]`);
             var qtCurrent = parseInt($(inputQt).val());
             let typeAction = $(e.currentTarget).attr('data-type');
             if (!isNaN(qtCurrent)) {
@@ -196,7 +193,7 @@ const url  = $('body').attr("data-url");
 
         let userId = $('#totalizador').attr('data-userid');
         $.ajax({
-            url: url+'includes/getTotalCart.php?id='+userId,
+            url: 'includes/getTotalCart.php?id='+userId,
             method: "get",
       
 
