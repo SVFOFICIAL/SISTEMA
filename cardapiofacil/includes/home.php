@@ -166,7 +166,7 @@ if(!$lerbanco->getResult()){
 
 								$exp = explode(',', $dia_semana);
 							 
-								$nomeItem = limitarTexto($nome_item, 60);
+								$nomeItem = limitarTexto($nome_item, 40);
 							 
 								if(in_array($diadehoje, $exp)):
 								 
