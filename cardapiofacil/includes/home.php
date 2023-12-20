@@ -166,7 +166,7 @@ if(!$lerbanco->getResult()){
 
 								$exp = explode(',', $dia_semana);
 							 
-						 
+								$nomeItem = limitarTexto($nome_item, 60);
 							 
 								if(in_array($diadehoje, $exp)):
 								 
@@ -175,7 +175,9 @@ if(!$lerbanco->getResult()){
 									<tr style="border-bottom: 1px solid #E9E8E6" class="bg-white">
 									
 										<td data-toggle="modal" data-iditem="<?=$ido_DoItem ?>" class="prod p-5 bg-white flex flex-col mb-5" data-target="#popuppedido_<?=$ido_DoItem;?>">
-										<h5 class="name" style="font-size: 12px; margin-top: 3px;"><?=$nome_do_item;?></h5>
+										<div style="width:300px">
+											<p class="name" style="line-break: anywhere;font-size: 12px; margin-top: 3px;"><?=$nomeItem;?></p>
+										</div>
 											<?php
 											if (!empty($img_item) && $img_item != "null" && file_exists(UPLOAD_PATH.$img_item) && !is_dir(UPLOAD_PATH.$img_item)):										
 												if($detect->isMobile()): 
@@ -848,7 +850,7 @@ endif;
 			<img src="img/voltar_1.png" class="icon_close_alt2"></a>										
 			
 		</div>
-		<button  data-target="#checkout-modal"  data-toggle="modal" type="submit" style="cursor: pointer;" id="checkout-btn">
+		<a href="<?=$site.$Url[0];?>/carrinho" style="cursor: pointer;" id="checkout-btn">
 		<div id="pagar" style="background: #46DC4C;padding:10px;height:100%" class="w-full items-center flex flex-row">
 			<div id="text-checkout" style="font-size: 20px;" class="text-left w-full">
 			 
@@ -863,7 +865,7 @@ endif;
 		
 			
 		</div>
-		</button>
+					</a>
 	</div>
 				</div>
 		
