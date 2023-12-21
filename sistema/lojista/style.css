@@ -1,0 +1,181 @@
+body {
+    background-color: #7232A0;
+    display: flex;
+    justify-content: center;
+}
+@font-face {
+    font-family: Inter;
+    src: url(./inter.ttf);
+}
+
+.container {
+    width: 1215px;
+    padding: 9px 20px;
+
+    color: #000;
+
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.menu {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 9px 11px;
+    border: 1px solid #A3A3A3;
+    border-radius: 3px;
+}
+
+.menu .item {
+    width: 266px;
+    height: 200px;
+    text-decoration: none;
+    display: flex;
+    align-items: end;
+}
+
+.menu .item div {
+    width: 100%;
+    text-align: center;
+    background: #000000aa;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: underline;
+    text-decoration: none;
+    margin-bottom: 8px;
+}
+
+.menu .item-delivery {
+    background: url(../img/lojista-delivery-menu.png) no-repeat;
+    background-size: cover;
+}
+
+.menu .item-retirada {
+    background:
+    linear-gradient(
+      #7232A066,#7232A066
+    ),
+    url(../img/lojista-retirada-menu-pb.png) no-repeat;
+    background-size: cover;
+}
+
+.menu .item-retirada:hover {
+    background: url(../img/lojista-retirada-menu.png) no-repeat;
+    background-size: cover;
+}
+
+.menu .item-mesa {
+    background:
+    linear-gradient(
+      #7232A066,#7232A066
+    ),
+    url(../img/lojista-mesa-menu-pb.png) no-repeat;
+    background-size: cover;
+}
+
+.menu .item-mesa:hover {
+    background: url(../img/lojista-mesa-menu.png) no-repeat;
+    background-size: cover;
+}
+
+.menu .item-sair {
+    background: url(../img/lojista-close-menu.png) no-repeat;
+    background-size: cover;
+}
+
+.content {
+    margin-top: 6px;
+    width: 100%;
+    padding: 9px 11px;
+    border: 1px solid #A3A3A3;
+    border-radius: 3px;
+}
+
+.banner {
+    width: 100%;
+    height: 117px;
+    background: url(../img/lojista-delivery-banner.png);
+    background-size: cover;
+    border-radius: 6px;
+}
+
+.search {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.search  input{
+    width: calc(100% - 17px);
+    padding: 9px;
+    border-radius: 4px;
+    border: none;
+}
+
+.control {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 11px;
+}
+
+.cotrol-buttons {
+    gap: 20px;
+    display: flex;
+}
+
+.cotrol-buttons .bt-link {
+    width: 125px;
+    height: 27px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cotrol-buttons .todos {
+    background: #fff;
+}
+
+.cotrol-buttons .aberto {
+    background: #46DC4C;
+}
+
+.cotrol-buttons .produzindo {
+    background: #FFC000;
+}
+
+.cotrol-buttons .entrega {
+    background: #2253FF;
+}
+
+.cotrol-buttons .finalizados {
+    background: #D9D9D9;
+}
+
+.cotrol-buttons .cancelados {
+    background: #FF0000;
+}
+
+.total {
+    font-size: 20px;
+    color: #fff;
+}
+
+
+iframe {
+    width: 100%;
+    height: 400px;
+    margin-top: 11px;
+    border-radius: 4px;
+}
