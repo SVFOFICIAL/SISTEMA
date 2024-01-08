@@ -71,10 +71,10 @@ try{
                         <div style=\"color:#545353\" class=\"mr-2 ml-2 text-left\">Observação: {$observacao}</div>
                         <div class=\"mr-2 ml-2 text-left\">R$: {$preco}</div>   
                         <div style=\"width:180px;height:60%\" class=\"flex items-center flex-row\">
-                            <button style=\"padding: 2px; height:50%;background:#E70D0D;font-size:12px;border-radius:5px;color:white;cursor:pointer;\" data-url=\"$site\" data-idcart=\"{$item['id_carrinho']}\" data-iditem=\"{$idProduto}\" data-id=\"{$item['id']}\" data-item_hash=\"$hashItem\" class=\"m-2 remove_item w-full justify-center flex flex-row\">
+                            <button style=\"padding: 2px; align-items: center;height:50%;background:#E70D0D;font-size:12px;border-radius:5px;color:white;cursor:pointer;\" data-url=\"$site\" data-idcart=\"{$item['id_carrinho']}\" data-iditem=\"{$idProduto}\" data-id=\"{$item['id']}\" data-item_hash=\"$hashItem\" class=\"m-2 remove_item w-full justify-center flex flex-row\">
                                
-                                <div class=\"mr-2\"> <img src=\"{$site}img/lixeira_excluir.png\"></div>
-                                <div class=\"p-1 mr-2\"><span>Excluir</span> </div>
+                                <div style=\"padding:2px\" class=\"mr-2\"> <img src=\"{$site}img/lixeira_excluir.png\"></div>
+                                <div style=\"padding-top:2px\" class=\"mr-2\"><span>Excluir</span> </div>
                             </button>
                          <div style=\"height:50%;border: 1px solid #A1A1A1;border-radius: 5px;\" class=\"m-2 flex items-center flex-row w-full\">
 		

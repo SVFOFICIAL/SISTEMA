@@ -46,31 +46,38 @@ function tirarAcentos($string){
 	<head>
 
 	<style>
+
+		body{
+			background:white;
+		}
 #img-head-loja{
 	display:none;
 }
 
 .parallax-window{
-	display:none;
+	display:none !important;
 }
 .checkout-container{
 	padding:20px;
 
 }
 
+
+
 .tab-link{
-	border-top: 2px solid #F0F0F0;
-  border-left: 2px solid #F0F0F0;
-  border-right: 2px solid #F0F0F0;
+	border-top:  1px solid transparent;
+  border-left:1px solid transparent;
+  border-right:1px solid transparent;
   background: #F0F0F0;
-  
+  font-size:20px
 }
 
 .tab-link-active{
-	border-top: 2px solid #F0F0F0;
-  border-left: 2px solid #F0F0F0;
-  border-right: 2px solid #F0F0F0;
-  background: white;
+	border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+   background:white;
+  font-size:20px
 }
 
 a:hover,a:link,a:visited{
@@ -90,25 +97,27 @@ a:hover,a:link,a:visited{
 		<div  class="config-header w-full text-bold text-center text-white">
 											<p>MODO DE ENTREGA</p>
 									</div>	
-									<ul style="color:black" class="w-full">
-						 			<div class="w-full flex flex-row">
+							<ul style="color:black" class="w-full">
+						 			<div class="bg-white w-full flex flex-row">
 									<div class="w-full tab-link-active text-center">
-											<button class="nav-link active" data-tipo="0" aria-current="page" >Delivery</button>
+											<button id="tipo_0" class="nav-link" data-tipo="0" aria-current="page" >Delivery</button>
 									</div>
 								<div class="w-full tab-link text-center">
-									<button class="nav-link" data-tipo="1" >Retirada na Loja</button>
+									<button id="tipo_1" class="nav-link" data-tipo="1" >Retirada na Loja</button>
 									</div>
 								</div>
 						 
 			</ul>
 	<div id="detalhes_pedido"></div>
-	
+			<section>
 	<div id="delivery" class="checkout-container flex flex-col">
 		 
-	<div class="w-full">
-			<img src="<?=$site;?>img/delivery.jpg" style="max-width: 100%;height: auto;" />
+	<div class="flex w-full">
+			<img  class="w-full" src="<?=$site;?>img/entrega_1.png" style="max-width: 100%;height: auto;" />
 			</div>
 		<form style="margin-top: 20px" id="getDadosPedidoCompleto" method="post">
+
+		<input hidden name="opcao_delivery" value="true">
 			<div class="w-full">
 			 				
 						<div class="w-full" id="order_process">				
@@ -129,6 +138,31 @@ a:hover,a:link,a:visited{
 								<label for="cep">Cep:</label>
 								<input required type="text" id="cep" name="cep" class="form-control" placeholder="Digite seu cep ex: 00.000-00" data-mask="00.000-00" maxlength="7">
 							</div>
+
+							<div class="form-group"> 
+									<div class="flex flex-col">
+									<label class="w-full ">UF:</label>       
+									<div class="w-full">
+										<select class="form-control" name="uf" id="estados2">     
+										</select>
+									</div>
+									</div>
+									</div>
+									<div class="form-group"> 
+									<label class="w-full">Cidade:</label>       
+									<div class="w-full">
+										<select class="form-control" name="cidade" id="cidades2">    
+										</select>
+									</div>
+									</div>
+									<div class="form-group">
+									<label class="w-full">Bairro:</label>
+									<div class="w-full">
+										
+										<input type="text" name="bairro" class="form-control" placeholder="Selecione seu Bairro">
+									
+									</div>
+									</div>
 		
 							<?php if($_POST['opcao_delivery'] == 'false2'):?>						
 								<div class="row">
@@ -146,14 +180,36 @@ a:hover,a:link,a:visited{
 									</div>
 								</div> 
 							<?php endif; ?>
+ 
+								 
 
+								<div class="row">
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group">
+											<label for="rua"><span style="color: red;">* </span><?=$texto['msg_sua_rua'];?></label>
+											<input type="text" required id="rua" name="rua" size="60" class="form-control" placeholder="Digite o nome da sua rua ex: Rua jose">
+										</div>
+									</div>
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group">
+											<label for="unidade"><span style="color: red;">* </span><?=$texto['msg_seu_n'];?></label>
+											<input type="text" required id="unidade" data-mask="#########0" name="unidade" size="60" class="form-control" placeholder="Digite o numero de sua residência ex: 100">
+										</div>
+									</div>
 
-							<script type="text/javascript">
-								// $(document).ready(function() {
-								// 	$('.js-example-basic-single').select2();
-								// });
-							</script>
-							<?php if($_POST['opcao_delivery'] == 'true'):?>	
+								</div>
+
+								<div class="form-group">
+									<label for="complemento"><?=$texto['msg_complemento'];?></label>
+									<input type="text" size="150" id="complemento" name="complemento"  class="form-control" placeholder="Digite um complemento ex: bloco 00 ap 100">
+								</div>
+								<div class="form-group">
+									<label for="observacao"><?=$texto['msg_obs_endereco'];?></label>
+									<input type="text" id="observacao" name="observacao" id="observacao" class="form-control" placeholder="Digite uma observação ex: perto da delegacia">
+								</div>	
+								
+								
+
 
 								<?php
 
@@ -164,7 +220,7 @@ a:hover,a:link,a:visited{
 									<!-- INICIO DO LOOP DOS BAIRROS -->	
 									<input type="hidden" required name="bairro2" id="bairro2" value="">	
 									<div class="form-group">
-										<label for="bairro"><span style="color: red;">* </span><?=$texto['msg_seu_bairro'];?></label>
+										<label for="bairro">Taxa de Entrega:</label>
 										<select name="bairro" id="framework" class="form-control js-example-basic-single getBairro" required data-live-search="true">
 											<option value=""><?=$texto['msg_sel_bairro'];?></option>								
 											<?php	
@@ -182,68 +238,198 @@ a:hover,a:link,a:visited{
 										</select>
 									</div>
 									<!-- FINAL DO LOOP DOS BAIRROS -->	
-									<?php
-								else:
-									?>
-									<div class="form-group">
-										<label for="bairro"><span style="color: red;">* </span><?=$texto['msg_seu_b'];?></label>
-										<input type="text" required size="150" id="bairro" name="bairro"  class="form-control" placeholder="">
+									<?php 
+						 
+						endif;?>
+								 <div class="w-full flex flex-col">
+									 <div class="indent_title_in">
+  
+  									<h3 style="font-size:24px" class="text-bolder" >Seus dados:</h3>
+		   
+		 						 	<span style="font-size:12px">Preencha todos os campos corretamente</span>
+
+	   
+		 							 </div>
+
+									 <div class="w-full">
+									 <div style="margin-top:20px" class="form-group">
+									<label for="complemento">Nome:</label>
+									<input type="text" size="150" id="nome_dados" name="nome_cliente"  class="form-control" placeholder="Digite seu nome ex: João da Silva">
+								</div>
+								<div class="form-group">
+									<label for="observacao">Telefone:</label>
+									<input type="text" id="telefone_dados" name="telefone_cliente" class="form-control" placeholder="Digite seu telefone ex: (12) 98282-3210">
+								</div>
+										</div>
+
+								</div>
+					</section>
+
+							
+							<div class="w-full totalizador_title">
+							<div  class="config-header w-full text-bold text-center text-white">
+											<p>TOTALIZADOR DO PEDIDO</p>
 									</div>
-									<?php
+
+
+					<div class="col-md-3" id="sidebar">
+
+<div class="w-full">
+	<div id="w-full" >
+		 		
+	 
+		
+	 
+
+
+
+	<?php
+	if($_POST['opcao_delivery'] == 'true'):
+		echo "<input type=\"hidden\" name=\"opcao_delivery\" value=\"true\" />";
+	else:
+		echo "<input type=\"hidden\" name=\"opcao_delivery\" value=\"false\" />";
+	endif;
+	?>
+
+	<table class="table table_summary">
+		<tbody>
+			
+			<tr>
+				<td>
+					<?=$texto['msg_adicionais'];?> <span class="pull-right">
+						R$ <?php				
+
+		// Get all items in the cart
+
+						$allItems = $cart->getItems();
+
+						$totaldeadicionais = 0;
+ 
+						foreach ($allItems as $items):
+						 
+							foreach ($items as $item):
+							 
+								$todosOsAdicionaisSoma2 = 0;
+								if(!empty($item['attributes']['adicionais'])):
+									foreach ($item['attributes']['adicionais'] as $adicionais):	
+										 								 
+										$todosOsAdicionaisSoma2 = ($todosOsAdicionaisSoma2 + $adicionais['valor_total']);
+									endforeach;
+									//$todosOsAdicionaisSoma2 = ($todosOsAdicionaisSoma2 * $item['quantity']);
 								endif;
-								?>	
 
-								<div class="row">
-									<div class="col-md-6 col-sm-6">
-										<div class="form-group">
-											<label for="cidade"><span style="color: red;">* </span><?=$texto['msg_sua_cidade'];?></label>
-											<input type="text" value="<?=($bairrosstatus == 'false' ? $cidade_empresa : '');?>" readonly required id="cidade" name="cidade" size="40" class="form-control" placeholder="">
+								$totaldeadicionais = $totaldeadicionais + $todosOsAdicionaisSoma2;
+
+
+							endforeach;
+						endforeach;
+
+						echo Check::Real($totaldeadicionais);
+
+						$total_do_pedido =  $cart->getAttributeTotal('preco') + $totaldeadicionais;
+
+						$total_g = ($bairrosstatus == 'false' && $_POST['opcao_delivery'] == 'true' ? $total_do_pedido + $config_delivery : $total_do_pedido);
+
+						$porcentagem = 0;
+						if(!empty($_SESSION['desconto_cupom']) && $_SESSION['desconto_cupom']['user_id'] == $getu):
+							$porcentagem = Check::porcentagem($_SESSION['desconto_cupom']['desconto'], $total_g);				
+						endif;
+						$total_g = $total_g - $porcentagem;	
+						?>											
+					</span>
+				</td>
+			</tr>
+		
+			<tr>
+				<?php
+				if(!empty($_SESSION['desconto_cupom']) && $_SESSION['desconto_cupom']['user_id'] == $getu):
+					?>
+					<tr>
+						<td>
+							<a style="color: green;">
+								Desconto
+								<span class="pull-right">
+									<?=$_SESSION['desconto_cupom']['desconto'];?> %
+								</span>
+							</a>
+						</td>
+					</tr>
+					<?php
+				endif;
+
+				?>
+				<td class="total">
+
+					<?=$texto['msg_total_valor'];?> <span class="pull-right"><b  id="v-total-p"><?=$total_g;?></span>
+						<script type="text/javascript">
+							var totalSemFormatacao = <?=$total_g;?>;
+							var pegaTaxa = $('#taxaDelivery').text();
+						</script>
+					</td>
+				</tr>
+				<?php if($_POST['opcao_delivery'] == 'true'):?>
+				<tr>
+					<td>
+						Delivery <span id="taxaDelivery" style="color: red;" class="pull-right"><?=($bairrosstatus == 'false' ? $config_delivery : '0.00');?></span>
+					</td>
+				</tr>
+			<?php endif;?>
+				<tr>
+				<td>
+					<span>Subtotal:<?php echo str_repeat('.', 67) ?><span> <span class="pull-right">R$ <?=(!empty($cart->getAttributeTotal('preco')) ? Check::Real($cart->getAttributeTotal('preco')) : '0,00');?></span>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		<hr>
+		<input type="hidden" name="enviar_pedido" value="enviar_agora" />
+		<input type="hidden" name="user_id" value="<?=$getu;?>" />
+		<input type="hidden" name="sub_total" value="<?=$total_do_pedido;?>" />
+	
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.enviarpedido').click(function(){
+					$('.enviarpedido').html('AGUARDE...');
+					$('.enviarpedido').prop('disabled', true);
+
+					$.ajax({
+						url: '<?=$site;?>includes/processaenviarpedido.php',
+						method: "post",
+						data: $('#getDadosPedidoCompleto').serialize(),
+
+						success: function(data){				
+							$('#resultadoEnviarPedido').html(data);
+							$('.enviarpedido').html('<?=$texto['msg_pedir_agora'];?>');
+							$('.enviarpedido').prop('disabled', false);
+						}
+					});
+
+				}); 
+			});
+		</script>
+		
+							 
+									 <div class="w-full flex flex-col">
+										<div class="w-full">
+												<label for="cupom">Cupom de desconto?</label>
 										</div>
-									</div>
-									<div class="col-md-6 col-sm-6">
-										<div class="form-group">
-											<label for="uf"><span style="color: red;">* </span><?=$texto['msg_seu_estado'];?></label>
-											<input type="text" value="<?=($bairrosstatus == 'false' ? $end_uf_empresa : '');?>" readonly required id="uf" name="uf" size="2" class="form-control" placeholder="">
+										<div class="w-full flex flex-row">
+										<div class="w-full">	
+										<input type="text" size="150" id="cupom" name="cupom_cliente"  class="form-control" placeholder="Digite seu Cupom de desconto aqui">
+										</div>	
+										<div class="w-full">
+									 
+									 <button type="text" id="valida_cupom" class="form-control">APLICAR</button>
+										 </div>
 										</div>
-									</div>
-
-
 								</div>
-
-								<div class="row">
-									<div class="col-md-6 col-sm-6">
-										<div class="form-group">
-											<label for="rua"><span style="color: red;">* </span><?=$texto['msg_sua_rua'];?></label>
-											<input type="text" required id="rua" name="rua" size="60" class="form-control" placeholder="">
-										</div>
-									</div>
-									<div class="col-md-6 col-sm-6">
-										<div class="form-group">
-											<label for="unidade"><span style="color: red;">* </span><?=$texto['msg_seu_n'];?></label>
-											<input type="tel" required id="unidade" data-mask="#########0" name="unidade" size="60" class="form-control" placeholder="">
-										</div>
-									</div>
-
-								</div>
-
-								<div class="form-group">
-									<label for="complemento"><?=$texto['msg_complemento'];?></label>
-									<input type="text" size="150" id="complemento" name="complemento"  class="form-control" placeholder="<?=$texto['msg_placehold_complemento'];?>">
-								</div>
-								<div class="form-group">
-									<label for="observacao"><?=$texto['msg_obs_endereco'];?></label>
-									<input type="text" id="observacao" name="observacao" id="observacao" class="form-control" placeholder="<?=$texto['msg_placehold_obs'];?>">
-								</div>				
-								<hr>
-
-								<?php 
-							else: 
-							endif;?>
-							<div class="row">
-										<?php if($_POST['opcao_delivery'] != 'false2'): ?>
-								<div class="col-md-6 col-sm-6">
-									<div class="form-group">
-										<label for="forma_pagamento"><span style="color: red;">* </span><?=$texto['msg_f_pagamento'];?></label>
+								
+									 
+</div><!-- End cart_box -->
+</div><!-- End theiaStickySidebar -->
+								<div class="w-full flex flex-col">
+									<div class="fw-full">
+										<label for="forma_pagamento"><span></span><?=$texto['msg_f_pagamento'];?></label>
 										<select class="form-control" required name="forma_pagamento" id="forma_pagamento">	
 											<?php	
 											$lerbanco->ExeRead('ws_formas_pagamento', 'WHERE user_id = :idus', "idus={$getu}");
@@ -260,30 +446,26 @@ a:hover,a:link,a:visited{
 										</select>
 									</div>
 								</div>
-								<div class="col-md-6 col-sm-6">
-									<div class="form-group">
-										<label for="valor_troco"><span style="color: red;">* </span><?=$texto['msg_troco'];?></label>
+								<div class="w-full flex flex-col">
+									<div class="w-full">
+										<label for="valor_troco"><span> </span><?=$texto['msg_troco'];?></label>
 										<input required type="tel" maxlength="11" data-mask="#.##0,00" data-mask-reverse="true" name="valor_troco" id="valor_troco" class="form-control" placeholder="0,00" />
 									</div>
 								</div>
-							<?php else: ?>
-							
-							<div class="col-md-12">
-								<div class="form-group">
-								<label class="form-control-label"><?=$texto['msg_msg_obsmesa'];?></label>
-								 <textarea rows="3" class="form-control" name="name_observacao_mesa" maxlength="60">Nenhuma</textarea>
-								</div>
-							</div>
-					
-					<?php endif; ?>
-								<div class="col-md-12">
+					 
+						 
+					<div class="w-full">
+					<a class="btn_full enviarpedido"><?=$texto['msg_pedir_agora'];?></a>
+										</div>
+			 
+								<!-- <div class="col-md-12">
 									<div class="form-group">								
 										<div class="icheck-material-green">
 											<input checked type="checkbox" name="confirm_whatsapp" value="true" id="green" />
 											<label for="green"><strong><?=$texto['msg_msg_enviarzap'];?></strong></label>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<input type="hidden" required name="valor_taxa" id="valor_taxa" value="<?=($bairrosstatus == 'false' && $_POST['opcao_delivery'] == 'true' ? $config_delivery : '0.00');?>">
 
 								
@@ -293,162 +475,10 @@ a:hover,a:link,a:visited{
 
 					</div><!-- End col-md-6 -->
 
-					<div class="col-md-3" id="sidebar">
-
-						<div class="w-full">
-							<div id="w-full" >
-								<h3><?=$texto['msg_resumo_pedido'];?> <i class="icon_cart_alt pull-right"></i></h3>			
-								<?php
-								if($cart->isEmpty()):
-									if(file_exists("img/imgfome.png") && !is_dir("img/imgfome.png")):
-										echo "<div id=\"div-img-fome\"><figure><img id=\"img-fome\" src=\"img/imgfome.png\" title=\"img-fome\" alt=\"img-fome\" /></figure></div><hr />";
-								endif;
-							else:
-								?>
-								<table class="table table_summary">
-									<tbody>
-										<?php
-										echo $pedidos;	
-										?>
-									</tbody>
-								</table>
-								<?php	
-								echo "<hr />";
-							endif;
-							?>
-
-
-
-							<?php
-							if($_POST['opcao_delivery'] == 'true'):
-								echo "<input type=\"hidden\" name=\"opcao_delivery\" value=\"true\" />";
-							else:
-								echo "<input type=\"hidden\" name=\"opcao_delivery\" value=\"false\" />";
-							endif;
-							?>
-
-							<table class="table table_summary">
-								<tbody>
-									<tr>
-										<td>
-											<?=$texto['msg_subtotal'];?> <span class="pull-right">R$ <?=(!empty($cart->getAttributeTotal('preco')) ? Check::Real($cart->getAttributeTotal('preco')) : '0,00');?></span>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<?=$texto['msg_adicionais'];?> <span class="pull-right">
-												R$ <?php				
-
-								// Get all items in the cart
-
-												$allItems = $cart->getItems();
-
-												$totaldeadicionais = 0;
-
-												foreach ($allItems as $items):
-
-													foreach ($items as $item):
-
-														$todosOsAdicionaisSoma2 = 0;
-														if(!empty($item['attributes']['totalAdicionais'])):
-
-															for($i=0; $i < $item['attributes']['totalAdicionais']; $i++):
-																$todosOsAdicionaisSoma2 = ($todosOsAdicionaisSoma2 + $item['attributes']['adicional_valor'.$i]);
-															endfor;
-															$todosOsAdicionaisSoma2 = ($todosOsAdicionaisSoma2 * $item['quantity']);
-														endif;
-
-														$totaldeadicionais = $totaldeadicionais + $todosOsAdicionaisSoma2;
-
-
-													endforeach;
-												endforeach;
-
-												echo Check::Real($totaldeadicionais);
-
-												$total_do_pedido =  $cart->getAttributeTotal('preco') + $totaldeadicionais;
-
-												$total_g = ($bairrosstatus == 'false' && $_POST['opcao_delivery'] == 'true' ? $total_do_pedido + $config_delivery : $total_do_pedido);
-
-												$porcentagem = 0;
-												if(!empty($_SESSION['desconto_cupom']) && $_SESSION['desconto_cupom']['user_id'] == $getu):
-													$porcentagem = Check::porcentagem($_SESSION['desconto_cupom']['desconto'], $total_g);				
-												endif;
-												$total_g = $total_g - $porcentagem;	
-												?>											
-											</span>
-										</td>
-									</tr>
-									<?php if($_POST['opcao_delivery'] == 'true'):?>
-										<tr>
-											<td>
-												Delivery <span id="taxaDelivery" style="color: red;" class="pull-right"><?=($bairrosstatus == 'false' ? $config_delivery : '0.00');?></span>
-											</td>
-										</tr>
-									<?php endif;?>
-									<tr>
-										<?php
-										if(!empty($_SESSION['desconto_cupom']) && $_SESSION['desconto_cupom']['user_id'] == $getu):
-											?>
-											<tr>
-												<td>
-													<a style="color: green;">
-														Desconto
-														<span class="pull-right">
-															<?=$_SESSION['desconto_cupom']['desconto'];?> %
-														</span>
-													</a>
-												</td>
-											</tr>
-											<?php
-										endif;
-
-										?>
-										<td class="total">
-
-											<?=$texto['msg_total_valor'];?> <span class="pull-right"><b  id="v-total-p"><?=$total_g;?></span>
-												<script type="text/javascript">
-													var totalSemFormatacao = <?=$total_g;?>;
-													var pegaTaxa = $('#taxaDelivery').text();
-												</script>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-								<hr>
-								<input type="hidden" name="enviar_pedido" value="enviar_agora" />
-								<input type="hidden" name="user_id" value="<?=$getu;?>" />
-								<input type="hidden" name="sub_total" value="<?=$total_do_pedido;?>" />
-								<a class="btn_full enviarpedido"><?=$texto['msg_pedir_agora'];?></a>
-								<script type="text/javascript">
-									$(document).ready(function(){
-										$('.enviarpedido').click(function(){
-											$('.enviarpedido').html('AGUARDE...');
-											$('.enviarpedido').prop('disabled', true);
-
-											$.ajax({
-												url: '<?=$site;?>includes/processaenviarpedido.php',
-												method: "post",
-												data: $('#getDadosPedidoCompleto').serialize(),
-
-												success: function(data){				
-													$('#resultadoEnviarPedido').html(data);
-													$('.enviarpedido').html('<?=$texto['msg_pedir_agora'];?>');
-													$('.enviarpedido').prop('disabled', false);
-												}
-											});
-
-										}); 
-									});
-								</script>
-								<a class="btn_full_outline" href="<?=$site. $Url[0];?>"><i class="icon-right"></i> <?=$texto['msg_add_mai'];?></a>
-							</form>
-						</div><!-- End cart_box -->
-					</div><!-- End theiaStickySidebar -->
 
 				</div><!-- End col-md-3 -->
 
-				<div id="retirada_loja" class="w-full">
+				<div style="display:none" id="retirada_loja" class="w-full">
 									teste
 								</div>
 
@@ -456,6 +486,7 @@ a:hover,a:link,a:visited{
 		</div><!-- End container -->
 		<div id="resultadoGetcliente"></div>
 		<div id="resultadoEnviarPedido"></div>
+		</form>
 		<!-- End Content =============================================== -->
 		<script type="text/javascript" >		
 			var iduserr = <?=$getu;?>;

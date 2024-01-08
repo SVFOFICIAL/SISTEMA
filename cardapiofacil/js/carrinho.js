@@ -18,27 +18,22 @@
         if(!$('#delivery').is(':visible')){
             $('#retirada_loja').hide();
             $('#delivery').show();
-            $('#delivery').removeClass('tab-link');
-            $('#delivery').addClass('tab-link-active')
+            $("#tipo_0").parent().removeClass('tab-link');
+            $("#tipo_0").parent().addClass('tab-link-active');
+            $("#tipo_1").parent().removeClass('tab-link-active');
+            $("#tipo_1").parent().addClass('tab-link');
         
-        }else{
-            $('#retirada_loja').hide();
-            $('#delivery').removeClass('tab-link');
-            $('#delivery').addClass('tab-link-active')
-            
-        }
+        } 
     }else if(parseInt(tipo)==1){
         if(!$('#retirada_loja').is(':visible')){
             $('#delivery').hide();
             $('#retirada_loja').show();
-            $('#retirada_loja').removeClass('tab-link');
-            $('#retirada_loja').addClass('tab-link-active')
+            $("#tipo_0").parent().removeClass('tab-link-active');
+            $("#tipo_0").parent().addClass('tab-link');
+            $("#tipo_1").parent().removeClass('tab-link');         
+            $("#tipo_1").parent().addClass('tab-link-active')
 
-        }else{
-            $('#delivery').hide();
-            $('#retirada_loja').removeClass('tab-link');
-            $('#retirada_loja').addClass('tab-link-active')
-        }
+        } 
     }
 
  })

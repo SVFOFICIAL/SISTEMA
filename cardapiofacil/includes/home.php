@@ -30,7 +30,7 @@ endif;
 
 </head>
 <!-- End col-md-3 -->
-<div class="flex w-full" <?=($detect->isMobile() ? "style=\"padding-left: 2px;padding-right: 2px;\"" : "");?>>
+<div class="flex w-full">
 	<?php
 	$diasemana = array('Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado');
 	$data = date('Y-m-d');
@@ -42,9 +42,9 @@ endif;
 
 	<div class="flex flex-col w-full"  style="color:black" <?=($detect->isMobile() ? "style=\"padding-left: 2px;\"" : "");?>>
 
-		<div style="position:sticky;top:0;z-index:99999;height: 100%;background:white"class="flex w-full flex-col">		 
+		<div style="position:sticky;top:0;z-index:99999;height: 100%;box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 10%);background:white"class="flex w-full flex-col">		 
 		<div style="margin:5px;">	
-		<input style="border:0; background:#F0F0F0;height: 49px;padding: 10px;border-radius: 10px;" class="bg-gray  w-full" type="text" id="search_products" placeholder="Busque por um produto">
+		<input style="border:0; background:#F0F0F0;height: 28px; padding: 10px;border-radius: 10px;" class="bg-gray  w-full" type="text" id="search_products" placeholder="Busque por um produto">
 			</div>
 		<div class="">
 		<div  class="slick-cat flex flex-row">
@@ -60,7 +60,7 @@ endif;
 				$iddacategoria = $id;
 
 	    ?>
-			<a  id="link_cat" class="btn-cat-link" target="_self" href="#<?=$id?>"> <div style="margin:10px; color: #7233A1;"  class="btn-cat"><?=$nome_cat?></div></a>
+			<a  id="link_cat" class="btn-cat-link" target="_self" href="#<?=$id?>"> <div style="margin:10px; color: #7233A1;font-size:12px"  class="btn-cat"><?=$nome_cat?></div></a>
 		<?php
 			}
 		}
@@ -139,14 +139,14 @@ if(!$lerbanco->getResult()){
 				else:
 
 					?>
-					<table    id="<?=$iddacategoria?>" data-idcat="<?=$id?>" style="display:table" class="box-prod flex w-full cart-list">
+					<table data-idcat="<?=$id?>" style="display:table" class="box-prod flex w-full cart-list">
 					 
 
-						<thead >
-							 <th    class="bg-white" class="<?=$iddacategoria?>">
+						<thead   id="<?=$iddacategoria?>">
+							 <th    class="w-full bg-white" class="<?=$iddacategoria?>">
 							 
-							 <div   class="p-5 bg-gray">								 
-								<span  data-idcat="<?=$idCat?>" style="font-size: 12px;color: #7233A1" class="nomargin_top" <?php if($detect->isMobile()): echo "style='font-size:15px;'"; endif; ?> ><?=$nomeCat;?></span>
+							 <div style="padding:6px" class="bg-gray">								 
+								<span      data-idcat="<?=$idCat?>" style="font-size: 12px;color: #7233A1" class="nomargin_top" <?php if($detect->isMobile()): echo "style='font-size:15px;'"; endif; ?> ><?=$nomeCat;?></span>
 								
 							
 								</div>							 
@@ -166,7 +166,7 @@ if(!$lerbanco->getResult()){
 
 								$exp = explode(',', $dia_semana);
 							 
-								$nomeItem = limitarTexto($nome_item, 40);
+								$nomeItem = limitarTexto($nome_item, 50);
 							 
 								if(in_array($diadehoje, $exp)):
 								 
@@ -174,38 +174,80 @@ if(!$lerbanco->getResult()){
 							 					 
 									<tr style="border-bottom: 1px solid #E9E8E6" class="bg-white">
 									
-										<td data-toggle="modal" data-iditem="<?=$ido_DoItem ?>" class="prod p-5 bg-white flex flex-col mb-5" data-target="#popuppedido_<?=$ido_DoItem;?>">
-										<div style="width:300px">
-											<p class="name" style="line-break: anywhere;font-size: 12px; margin-top: 3px;"><?=$nomeItem;?></p>
-										</div>
+										<td data-toggle="modal"  style="margin-top:5px" data-iditem="<?=$ido_DoItem ?>" class="prod bg-white flex flex-col mb-5" data-target="#popuppedido_<?=$ido_DoItem;?>">
+										
+										
 											<?php
 											if (!empty($img_item) && $img_item != "null" && file_exists(UPLOAD_PATH.$img_item) && !is_dir(UPLOAD_PATH.$img_item)):										
 												if($detect->isMobile()): 
-													$descProduto = limitarTexto($descricao_item, 200);
-													echo "<div class=\"flex justify-between w-full flex-row\"><div  style=\"font-size: 12px;margin-right: 10px;margin-bottom: 10px;margin-top: 5px;\" class=\"flex\"><p style=\"text-align: justify;color:#545353\">{$descProduto}</p></div><div style=\"margin-right:10px\" class=\"flex\"><figure class=\"thumb_menu_list\">".Check::Image($img_item, 'Imagem-item', 100, 100)."</figure></div>";
+													$descProduto = limitarTexto($descricao_item, 100);
+													$precoItem = Check::real($preco_item);
+											 
+													echo "
+													<div class=\"w-full flex\">
+																		<div  class=\"cont-prod flex-row w-full flex\">
+																		<div class=\"desc_prod flex w-full flex-col\">
+																		<div style=\"line-break: anywhere;    height: 100%;width: inherit;\">									
+																			<p class=\"name\" style=\"font-size: 12px; margin-top: -8px;\">{$nome_item}</p>
+																		</div>
+																		<div style=\"width: inherit;\" class=\"h-full flex\">
+																		<p class=\"cont_desc_prod\" style=\"text-align: justify;color:#545353\">{$descProduto}
+																			</p>
+																			</div>
+																			<div style=\"font-size:15px;margin-bottom:-8px;align-items: flex-end;justify-content: flex-start\"  class=\"w-full h-full flex\";>
+																			<span style=\"cursor:pointer;\">R$ {$precoItem}</span>
+																			</div>
+																			</div>
+																			<div  class=\"flex img-prod-table justify-end\"><div  class=\"flex\"><figure class=\"thumb_menu_list\">".Check::Image($img_item, 'Imagem-item', 100, 100)."</figure></div></div>
+																		</div>
+																		</div>	 ";
+																	 
+																
+													
+													 
 
-												else:
+												else:											
 													$descProduto = limitarTexto($descricao_item, 200);
-													echo "<div class=\"flex justify-between  w-full flex-row\"><div style=\"font-size: 12px;margin-right: 10px;margin-bottom: 10px;margin-top: 5px;\" class=\"flex w-full \"><p <p style=\"text-align: justify;color:#545353;\">{$descProduto}</p></div><div style=\"margin-right:10px\" class=\"flex\"><figure class=\"thumb_menu_list\">".Check::Image($img_item, 'Imagem-item', 100, 100)."</figure></div>";
+													$precoItem = Check::real($preco_item);
+													echo " 
+																<div class=\"w-full flex\">
+													
+															<div  class=\"cont-prod flex-row flex\">
+															<div class=\"desc_prod flex w-full flex-col\">
+																			<div style=\"line-break: anywhere;    height: 100%;width: inherit;\">								
+																				<p class=\"name\" style=\"font-size: 12px; margin-top: -8px;\">{$nome_item}
+																				</p>
+																			</div>
+																			<div style=\"width: inherit;\" class=\"h-full flex\">
+																					<p class=\"cont_desc_prod\" style=\"font-size:12px; text-align: justify;color:#545353\">{$descProduto}
+																					</p>
+																			</div>
+																			<div style=\"font-size:15px; margin-top:-8px;align-items: flex-end;justify-content: flex-start\"  class=\"w-full h-full flex\";>
+																			<span style=\"cursor:pointer;\">R$ {$precoItem}</span>
+																			</div>
+																		</div>
+																	<div class=\"flex img-prod-table justify-end\">
+																		<div  class=\"flex\">
+																				<figure class=\"thumb_menu_list\">".Check::Image($img_item, 'Imagem-item', 100, 100)."
+																				</figure>
+																		</div>
+																	</div>
+																	</div> ";
+																
+														
+												 
+												
+												
+											 
+
 												endif;
 											else:
 										//echo "<figure class=\"thumb_menu_list\"><img src=\"img/menu-thumb-1.jpg\" alt=\"thumb\"></figure>";
 											endif;
 											?>									
+									 
+											 
 										 
-											</div>
-											<div style="float: right;"><?php
-											$lerbanco->ExeRead("ws_relacao_tamanho", "WHERE id_user = :useriid AND id_item = :idiitem", "useriid={$getu}&idiitem={$ido_DoItem}");
-											if(!$lerbanco->getResult()):
-												echo "<span style='cursor:pointer;'>R$ ".Check::real($preco_item)."</span>";
-											else:
-												$total = $lerbanco->getRowCount();
-
-												echo "<span style='cursor:pointer;'>Ver Valores<span>";
-											endif;
-
-
-											?></div>
 											 
 										</td>
 										
@@ -237,7 +279,7 @@ $(document).ready(function(){
 													<div class="modal fade popuppedido" id="popuppedido_<?=$ido_DoItem;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 														<div class="modal-dialog">
 															<div style="height:100dvh;" class="modal-content">	
-															<div class="modal-body">												
+															<div style="height:100%;"class="modal-body">												
 																<div style="padding: 0px !important" id="cart_box">
 																	<div style="margin-top:0px !important"class="w-full flex flex-col dropdown-menupop">
 																		<a hidden data-dismiss="modal"  style="float: right;cursor: pointer;"id="fecharmodallogin" class="close-link"><i class="icon_close_alt2"></i></a>										
@@ -372,7 +414,7 @@ $(document).ready(function(){
 
 <!--FIM DA QUANTIDADE-->
 <br />
-<div style="padding-top:40px" class="flex flex-col w-full">
+<div style="padding-top:40px" class="no-ad flex flex-col w-full">
 <div class="flex flex-row w-full">
 <div style="margin:2px" class="w-ful">
 	<img width="20" src="img/comentario_pedido_1.png">
@@ -389,8 +431,8 @@ $(document).ready(function(){
 		<div style="padding: 5px;" class="w-full">
 		<span>Quantidade do produto</span>
 		</div>
-		<div style="padding: 5px;" class="w-full">
-		<div style="padding:5px" class="flex items-center flex-row w-full">
+		<div style="padding: 5px;" class="flex items-center flex-row w-full">
+	 
 		
 	<div style="height: 50%;" class="w-full "> 
 		<div style="color:white;background: #E70D0D;height: 26px" class="flex justify-center w-full">
@@ -409,7 +451,7 @@ $(document).ready(function(){
 			</button>
 		</div>
 		</div>
-		</div>
+	 
 		</div>
 </div>
 </div>
@@ -462,16 +504,9 @@ $("#popuppedido_"+"<?=$ido_DoItem;?>").on('hidden.bs.modal', function(e){
 						var j = JSON.parse(data);
 						 
 						if(j.success && !j.errror){
-							x0p('Sucesso!', 
-								'Seu Pedido foi Adicionado!', 
-								'ok', false);
+					 
 
-								var sound = new Howl({
-									src: ["<?=$site;?>"+'addcarrinho.mp3'],
-									volume: 1.0,
-									autoplay: true,
-									});
-									sound.play();
+						 
 									$("#popuppedido_"+<?=$ido_DoItem;?>).modal('hide');
 									$(".obsitem").val("");
 									 
@@ -605,15 +640,13 @@ endif;
 
 
 
-<div style="margin-top: 50px;" class="flex" id="">
+<div class="flex" id="">
 <div class="modal fade cart-modal" id="cart-modal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 														<div  class="modal-dialog">
 															<div style="height:100dvh;border-radius:unset !important" class="modal-content">	
 	<div class="theiaStickySidebar">
 		<div id="cart_box" >
-		<div  class="config-header w-full text-bold text-center text-white">
-											<p>SEU PEDIDO</p>
-									</div>					
+	 				
 			 
 				
 			

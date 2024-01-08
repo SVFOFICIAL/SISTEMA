@@ -263,6 +263,9 @@ $(document).ready(function () {
 
 
 			<style type="text/css">
+
+
+
 			@media (min-width: 768px) {
 				.omb_row-sm-offset-3 div:first-child[class*="col-"] {
 					margin-left: 25%;
