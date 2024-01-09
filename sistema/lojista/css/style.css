@@ -54,8 +54,22 @@ body {
     margin-bottom: 8px;
 }
 
+.menu .item-delivery.active {
+    background: url(../../img/lojista-delivery-menu.png) no-repeat;
+    background-size: cover;
+}
+
+.menu .item-delivery:hover {
+    background: url(../../img/lojista-delivery-menu.png) no-repeat;
+    background-size: cover;
+}
+
 .menu .item-delivery {
-    background: url(../img/lojista-delivery-menu.png) no-repeat;
+    background:
+    linear-gradient(
+      #7232A066,#7232A066
+    ),
+    url(../../img/lojista-delivery-menu-pb.png) no-repeat;
     background-size: cover;
 }
 
@@ -64,12 +78,17 @@ body {
     linear-gradient(
       #7232A066,#7232A066
     ),
-    url(../img/lojista-retirada-menu-pb.png) no-repeat;
+    url(../../img/lojista-retirada-menu-pb.png) no-repeat;
     background-size: cover;
 }
 
 .menu .item-retirada:hover {
-    background: url(../img/lojista-retirada-menu.png) no-repeat;
+    background: url(../../img/lojista-retirada-menu.png) no-repeat;
+    background-size: cover;
+}
+
+.menu .item-retirada.active {
+    background: url(../../img/lojista-retirada-menu.png) no-repeat;
     background-size: cover;
 }
 
@@ -78,19 +97,25 @@ body {
     linear-gradient(
       #7232A066,#7232A066
     ),
-    url(../img/lojista-mesa-menu-pb.png) no-repeat;
+    url(../../img/lojista-mesa-menu-pb.png) no-repeat;
     background-size: cover;
 }
 
 .menu .item-mesa:hover {
-    background: url(../img/lojista-mesa-menu.png) no-repeat;
+    background: url(../../img/lojista-mesa-menu.png) no-repeat;
+    background-size: cover;
+}
+
+.menu .item-mesa.active {
+    background: url(../../img/lojista-mesa-menu.png) no-repeat;
     background-size: cover;
 }
 
 .menu .item-sair {
-    background: url(../img/lojista-close-menu.png) no-repeat;
+    background: url(../../img/lojista-close-menu.png) no-repeat;
     background-size: cover;
 }
+
 
 .content {
     margin-top: 6px;
@@ -103,7 +128,23 @@ body {
 .banner {
     width: 100%;
     height: 117px;
-    background: url(../img/lojista-delivery-banner.png);
+    background: url(../../img/lojista-delivery-banner.png);
+    background-size: cover;
+    border-radius: 6px;
+}
+
+.banner.retirada {
+    width: 100%;
+    height: 117px;
+    background: url(../../img/lojista-retirada-banner.png);
+    background-size: cover;
+    border-radius: 6px;
+}
+
+.banner.mesa {
+    width: 100%;
+    height: 117px;
+    background: url(../../img/lojista-pedido-banner.png);
     background-size: cover;
     border-radius: 6px;
 }
@@ -111,13 +152,33 @@ body {
 .search {
     width: 100%;
     margin-top: 10px;
+    display: flex;
 }
 
-.search  input{
+.search  .searchbar{
     width: calc(100% - 17px);
     padding: 9px;
     border-radius: 4px;
+    font-size: 11px;
     border: none;
+}
+
+.search .garcom {
+    width: 25%;
+    padding: 9px;
+    border-radius: 4px;
+    border: none;
+    font-size: 11px;
+    margin-left: 10px;
+}
+
+.search .comanda {
+    width: 25%;
+    padding: 9px;
+    border-radius: 4px;
+    margin-left: 10px;
+    border: none;
+    font-size: 11px;
 }
 
 .control {

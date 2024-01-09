@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel do Lojista</title><link rel="stylesheet" href="style.css">
+    <title>Painel do Lojista</title><link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
         <div class="menu">
-            <a href="#" class="item item-delivery">
+            <a href="#" class="item item-delivery active">
                 <div>DELIVERY</div>
             </a>
-            <a href="#" class="item item-retirada">
+            <a href="retirada.php" class="item item-retirada">
                 <div>RETIRADA</div>
             </a>
-            <a href="#" class="item item-mesa">
+            <a href="mesa.php" class="item item-mesa">
                 <div>MESA</div>
             </a>
             <a href="#" class="item item-sair">
@@ -30,17 +30,17 @@
             </div>
             <div class="control">
                 <div class="cotrol-buttons">
-                    <a href="#" class="bt-link todos">Todos</a>
-                    <a href="#" class="bt-link aberto">Em aberto</a>
-                    <a href="#" class="bt-link produzindo">Produzindo</a>
-                    <a href="#" class="bt-link entrega">Saiu para entrega</a>
-                    <a href="#" class="bt-link finalizados">Finalizados</a>
-                    <a href="#" class="bt-link cancelados">Cancelados</a>
+                    <a href="delivery/delivery-todos.php" target="tabela" class="bt-link todos">Todos</a>
+                    <a href="delivery/delivery-aberto.php" target="tabela" class="bt-link aberto">Em aberto</a>
+                    <a href="delivery/delivery-produzindo.php" target="tabela" class="bt-link produzindo">Produzindo</a>
+                    <a href="delivery/delivery-entrega.php" target="tabela" class="bt-link entrega">Saiu para entrega</a>
+                    <a href="delivery/delivery-finalizados.php" target="tabela"  class="bt-link finalizados">Finalizados</a>
+                    <a href="delivery/delivery-cancelados.php" target="tabela" class="bt-link cancelados">Cancelados</a>
                 </div>
                 <div class="total">Total de pedidos: 100</div>
             </div>
         
-            <iframe src="teste.html" frameborder=0>
+            <iframe src="delivery/delivery-todos.php" frameborder=0  name="tabela">
                 <p>Your browser does not support iframes.</p>
             </iframe>
         </div>
