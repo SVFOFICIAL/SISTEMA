@@ -85,7 +85,9 @@ else:
 		<link href="<?=$site;?>css/suportewats.css" rel="stylesheet">
 		<link href="<?=$site;?>css/slick.css" rel="stylesheet">
 		<link href="<?=$site;?>css/slick-theme.css" rel="stylesheet">
-		<link href="<?=$site;?>css/lightslider.css" rel="stylesheet"> 
+		<link href="<?=$site;?>css/lightslider.css" rel="stylesheet">
+		 
+		
 		<link href="<?=$site;?>css/icheck/icheck-material.css" rel="stylesheet">
 		<link href="<?=$site;?>css/flowbite.min.css" rel="stylesheet">
 		
@@ -230,13 +232,6 @@ else:
 				 font-size:8px !important;
 			 }
 		 
-	 }
-
-	 @media screen and (min-width: 430px) and (max-height:750px) {
-
-		.popuppedido .modal-content {
-			height:100% !important;
-		}
 	 }
 
 		@media screen and (min-width: 700px) and (max-height:1400px) {

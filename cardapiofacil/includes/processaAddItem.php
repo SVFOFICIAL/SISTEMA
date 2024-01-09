@@ -44,6 +44,7 @@ if(isset($carrinhoObj)){
 	$detalhes_pedido = array(
 		'id_produto' => $carrinhoObj['id-item'],
 		'preco'  => $carrinhoObj['valor'],
+		'valor_unitario'  => $carrinhoObj['valor'],
 		'quantidade' => $carrinhoObj['quantidade'],
 		'nome'  => $carrinhoObj['nome_item'],  
 		'img_prod'=>  $carrinhoObj['img_prod'],
@@ -76,7 +77,7 @@ if(isset($carrinhoObj)){
 			}
 		} 
 	 
-		$detalhes_pedido['adicionais'] = array();
+		$detalhes_pedido['adicionais'] = !empty($detalhes_pedido['adicionais']) && count($detalhes_pedido['adicionais']) > 0 ? $detalhes_pedido['adicionais'] : array();
 		$cart->add($carrinhoObj['id-item'], $carrinhoObj['quantidade'], $detalhes_pedido);
 		$detalhes_pedido['preco'] =  (float)$detalhes_pedido['preco'] * (int)$detalhes_pedido['quantidade'];
 		$carrinho['total_carrinho'] = (float)$cart->getAttributeTotal('preco');	   

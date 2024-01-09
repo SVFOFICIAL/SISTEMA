@@ -9,10 +9,12 @@ import {cardapio } from './cardapiofacil.js'
 
 $(window).on('hidden.bs.modal', function(){
     $('body').attr('style', 'overflow: visible !important');
+    $('body').attr('style', 'position: relative !important');
 })
 
 $(window).on('shown.bs.modal', function(){
     $('body').attr('style', 'overflow: hidden !important');
+    $('body').attr('style', 'position: unset !important');
 })
 
 $('.prod').click(function(e){
@@ -62,17 +64,34 @@ $(".popuppedido").on("show.bs.modal", function(e){
   
     var resolution = window.matchMedia("(min-height: 830px)");
 
+     
     if(resolution.matches && flagTp && parseInt(flagTp)==0){ 
-       
+
+        
+    
+        $('#popuppedido_'+idModal+' .no-ad').attr('style', "padding-top:unset !important");
         $('#popuppedido_'+idModal+' .btn-modal-footer').removeClass('btn-adicionar-item');
         $('#popuppedido_'+idModal+' .btn-modal-footer').addClass('btn-adicionar-item-no-tp');
         $('#popuppedido_'+idModal+' .btn-modal-footer').css('opacity', '1');
    
       
     }else if(!resolution.matches && flagTp && parseInt(flagTp)==0){
+
+  
+        $('#popuppedido_'+idModal+' .no-ad').attr('style', "padding-top:unset !important");
         $('#popuppedido_'+idModal+' .btn-modal-footer').removeClass('btn-adicionar-item');
         $('#popuppedido_'+idModal+' .btn-modal-footer').addClass('btn-adicionar-item-no-tp');
         $('#popuppedido_'+idModal+' .btn-modal-footer').css('opacity', '1');
+    }
+
+    if(flagTp && parseInt(flagTp)==1){
+        $('#popuppedido_'+idModal+' .modal-content').css('height', '100%');
+        $('#popuppedido_'+idModal+' .modal-body').css('height', '100%');
+
+    }else{
+        $('#popuppedido_'+idModal+' .modal-content').css('height', '100dvh');
+       
+   
     }
 
 })

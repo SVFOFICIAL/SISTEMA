@@ -38,6 +38,7 @@ try{
       $detalhes_pedido = array(
         'id_produto' => $itemCart[0]['attributes']['id_produto'],
         'preco'  =>  $itemCart[0]['attributes']['preco'],
+        'valor_unitario'  => $itemCart[0]['attributes']['valor_unitario'],
         'quantidade' =>  $itemCart[0]['attributes']['quantidade'],
         'nome'  => $itemCart[0]['attributes']['nome'],
         'img_prod'=>  $itemCart[0]['attributes']['img_prod'],
