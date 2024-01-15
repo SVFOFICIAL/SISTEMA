@@ -21,38 +21,38 @@
             <th>Comandos</th>
         </tr>
         <tr>
-            <td>3</td>
-            <td>00:30</td>
-            <td>JOSEVALDO</td>
-            <td>3</td>
-            <td>Geraldo</td>
-            <td>R$ 30,20</td>
-            <td><div class="aberto">todos</div></td>
-            <td>
+            <td style="color:white;">3</td>
+            <td style="color:white;">00:30</td>
+            <td style="color:white;">JOSEVALDO</td>
+            <td style="color:white;">3</td>
+            <td style="color:white;">Geraldo</td>
+            <td style="color:white;">R$ 30,20</td>
+            <td style="color:white;"><div class="aberto">todos</div></td>
+            <td style="color:white;">
                 <button class="action-table view">V</button>
             </td>
         </tr>
         <tr>
-            <td>3</td>
-            <td>00:30</td>
-            <td>JOSEVALDO</td>
-            <td>3</td>
-            <td>Geraldo</td>
-            <td>R$ 30,20</td>
-            <td><div class="aberto">Em aberto</div></td>
-            <td>
+            <td style="color:white;">3</td>
+            <td style="color:white;">00:30</td>
+            <td style="color:white;">JOSEVALDO</td>
+            <td style="color:white;">3</td>
+            <td style="color:white;">Geraldo</td>
+            <td style="color:white;">R$ 30,20</td>
+            <td style="color:white;"><div class="aberto">Em aberto</div></td>
+            <td style="color:white;">
                 <button class="action-table view">V</button>
             </td>
         </tr>
         <tr>
-            <td>3</td>
-            <td>00:30</td>
-            <td>JOSEVALDO</td>
-            <td>(12) 98282-3210</td>
-            <td>Geraldo</td>
-            <td>R$ 30,20</td>
-            <td><div class="aberto">Em aberto</div></td>
-            <td>
+            <td style="color:white;">3</td>
+            <td style="color:white;">00:30</td>
+            <td style="color:white;">JOSEVALDO</td>
+            <td style="color:white;">(12) 98282-3210</td>
+            <td style="color:white;">Geraldo</td>
+            <td style="color:white;">R$ 30,20</td>
+            <td style="color:white;"><div class="aberto">Em aberto</div></td>
+            <td style="color:white;">
                 <button class="action-table view">V</button>
             </td>
         </tr>

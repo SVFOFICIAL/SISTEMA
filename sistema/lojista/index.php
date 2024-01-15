@@ -9,16 +9,19 @@
     <div class="container">
         <div class="menu">
             <a href="#" class="item item-delivery active">
-                <div>DELIVERY</div>
+                <div class="notification">5</div>
+                <div class="subtitle-menu">DELIVERY</div>
             </a>
             <a href="retirada.php" class="item item-retirada">
-                <div>RETIRADA</div>
+                <div class="notification">5</div>
+                <div class="subtitle-menu">RETIRADA</div>
             </a>
             <a href="mesa.php" class="item item-mesa">
-                <div>MESA</div>
+                <div class="notification">5</div>
+                <div class="subtitle-menu">MESA</div>
             </a>
             <a href="#" class="item item-sair">
-                <div>SAIR</div>
+                <div class="subtitle-menu">SAIR</div>
             </a>
         </div>
         <div class="content">
@@ -33,9 +36,9 @@
                     <a href="delivery/delivery-todos.php" target="tabela" class="bt-link todos">Todos</a>
                     <a href="delivery/delivery-aberto.php" target="tabela" class="bt-link aberto">Em aberto</a>
                     <a href="delivery/delivery-produzindo.php" target="tabela" class="bt-link produzindo">Produzindo</a>
-                    <a href="delivery/delivery-entrega.php" target="tabela" class="bt-link entrega">Saiu para entrega</a>
+                    <a href="delivery/delivery-entrega.php" style="color:white;" target="tabela" class="bt-link entrega">Saiu para entrega</a>
                     <a href="delivery/delivery-finalizados.php" target="tabela"  class="bt-link finalizados">Finalizados</a>
-                    <a href="delivery/delivery-cancelados.php" target="tabela" class="bt-link cancelados">Cancelados</a>
+                    <a href="delivery/delivery-cancelados.php" style="color:white;" target="tabela" class="bt-link cancelados">Cancelados</a>
                 </div>
                 <div class="total">Total de pedidos: 100</div>
             </div>

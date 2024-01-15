@@ -21,40 +21,40 @@
             <th>Comandos</th>
         </tr>
         <tr>
-            <td>3</td>
-            <td>00:30</td>
-            <td>JOSEVALDO</td>
-            <td>(12) 98282-3210</td>
-            <td>ESTIVA</td>
-            <td>R$ 30,20</td>
-            <td><div class="aberto">todos</div></td>
-            <td>
+            <td style="color:white;">3</td>
+            <td style="color:white;">00:30</td>
+            <td style="color:white;">JOSEVALDO</td>
+            <td style="color:white;">(12) 98282-3210</td>
+            <td style="color:white;">ESTIVA</td>
+            <td style="color:white;">R$ 30,20</td>
+            <td style="color:white;"><div class="aberto">todos</div></td>
+            <td style="color:white;">
                 <button class="action-table view"><img src="../../img/eye.png" alt="Imprimir"></button>
                 <button class="action-table delete"><img src="../../img/lojista-back.png" alt="Imprimir"></button>
             </td>
         </tr>
         <tr>
-            <td>3</td>
-            <td>00:30</td>
-            <td>JOSEVALDO</td>
-            <td>(12) 98282-3210</td>
-            <td>ESTIVA</td>
-            <td>R$ 30,20</td>
-            <td><div class="aberto">Em aberto</div></td>
-            <td>
+            <td style="color:white;">3</td>
+            <td style="color:white;">00:30</td>
+            <td style="color:white;">JOSEVALDO</td>
+            <td style="color:white;">(12) 98282-3210</td>
+            <td style="color:white;">ESTIVA</td>
+            <td style="color:white;">R$ 30,20</td>
+            <td style="color:white;"><div class="aberto">Em aberto</div></td>
+            <td style="color:white;">
                 <button class="action-table view"><img src="../../img/eye.png" alt="Imprimir"></button>
                 <button class="action-table delete"><img src="../../img/lojista-back.png" alt="Imprimir"></button>
             </td>
         </tr>
         <tr>
-            <td>3</td>
-            <td>00:30</td>
-            <td>JOSEVALDO</td>
-            <td>(12) 98282-3210</td>
-            <td>ESTIVA</td>
-            <td>R$ 30,20</td>
-            <td><div class="aberto">Em aberto</div></td>
-            <td>
+            <td style="color:white;">3</td>
+            <td style="color:white;">00:30</td>
+            <td style="color:white;">JOSEVALDO</td>
+            <td style="color:white;">(12) 98282-3210</td>
+            <td style="color:white;">ESTIVA</td>
+            <td style="color:white;">R$ 30,20</td>
+            <td style="color:white;"><div class="aberto">Em aberto</div></td>
+            <td style="color:white;">
                 <button class="action-table view"><img src="../../img/eye.png" alt="Imprimir"></button>
                 <button class="action-table delete"><img src="../../img/lojista-back.png" alt="Imprimir"></button>
             </td>

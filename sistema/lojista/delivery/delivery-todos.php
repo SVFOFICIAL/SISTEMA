@@ -41,7 +41,7 @@
             <td>(12) 98282-3210</td>
             <td>ESTIVA</td>
             <td>R$ 30,20</td>
-            <td><div class="aberto">Em aberto</div></td>
+            <td><div class="aberto">todos</div></td>
             <td>
                 <button class="action-table print"><img src="../../img/print.png" alt="Imprimir"></button>
                 <button class="action-table view"><img src="../../img/eye.png" alt="Imprimir"></button>
@@ -55,7 +55,7 @@
             <td>(12) 98282-3210</td>
             <td>ESTIVA</td>
             <td>R$ 30,20</td>
-            <td><div class="aberto">Em aberto</div></td>
+            <td><div class="aberto">todos</div></td>
             <td>
                 <button class="action-table print"><img src="../../img/print.png" alt="Imprimir"></button>
                 <button class="action-table view"><img src="../../img/eye.png" alt="Imprimir"></button>

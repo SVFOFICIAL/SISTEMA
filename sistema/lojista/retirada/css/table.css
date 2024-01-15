@@ -43,6 +43,8 @@ tr td {
     height: 27px;
     border: none;
     border-radius: 3px;
+    border: 1px solid #fff;
+    cursor: pointer;
 }
 
 #table tr td .delete {
@@ -66,4 +68,9 @@ tr td {
     color: #FFF;
     background-color: #7232A0;
     height: 32px;
+}
+
+.aberto {
+    border: 1px solid #000;
+    border-radius: 4px;
 }
